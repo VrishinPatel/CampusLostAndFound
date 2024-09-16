@@ -1,0 +1,17 @@
+# Xcode
+#
+build/
+*.xcworkspace
+*.xcuserstate
+*.xcuserdata
+DerivedData/
+*.lock
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.plist
+
+# Pods
+#
+Pods/

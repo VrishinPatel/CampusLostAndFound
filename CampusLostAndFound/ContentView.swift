@@ -1,24 +1,22 @@
-//
-//  ContentView.swift
-//  CampusLostAndFound
-//
-//  Created by Vrishin Patel on 9/15/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @StateObject var viewModel = LostFoundViewModel()
 
-#Preview {
-    ContentView()
+    var body: some View {
+        TabView {
+            ItemListView(viewModel: viewModel, isLost: true)
+                .tabItem {
+                    Label("Lost Items", systemImage: "magnifyingglass")
+                }
+            ItemListView(viewModel: viewModel, isLost: false)
+                .tabItem {
+                    Label("Found Items", systemImage: "checkmark.circle")
+                }
+            AddItemView(viewModel: viewModel)
+                .tabItem {
+                    Label("Add Item", systemImage: "plus.circle")
+                }
+        }
+    }
 }
